@@ -23,7 +23,7 @@ RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-k
 RUN apt-get build-dep postgresql-${PG_VERSION} \
  && apt-get build-dep postgresql-common \
  && apt-get build-dep postgresql-client-common \
- && apt-get build-dep pgdg-keyring \
+ && apt-get build-dep pgdg-keyring
 
 RUN cd /tmp \
  && apt-get source --compile postgresql-${PG_VERSION} \
