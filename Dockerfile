@@ -13,7 +13,7 @@ RUN apt-get update \
  && apt-get install -y curl \
  && mkdir /var/local/repository \
  && cd /var/local/repository \
- && curl -sSL postgresql-9.4.4-raspbian.tgz https://www.dropbox.com/s/t9x78hbfo2mb8yi/postgresql-9.4.4-raspbian.tgz?dl=1 | tar xzC / \
+ && curl -sSL postgresql-9.4.4-raspbian.tgz https://www.dropbox.com/s/t9x78hbfo2mb8yi/postgresql-9.4.4-raspbian.tgz?dl=1 | tar xzC /var/local/repository \
  && echo "deb [ trusted=yes ] file:///var/local/repository ./" | tee /etc/apt/sources.list.d/my_own_repo.list \
  && apt-get update \
  && apt-get install -y postgresql-9.4 \
