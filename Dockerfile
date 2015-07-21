@@ -20,16 +20,16 @@ RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-k
  && apt-get update \
  && apt-get install -y build-essential fakeroot
 
-RUN apt-get build-dep postgresql-${PG_VERSION} \
- && apt-get build-dep postgresql-common \
- && apt-get build-dep postgresql-client-common \
- && apt-get build-dep pgdg-keyring
+RUN apt-get build-dep -y postgresql-${PG_VERSION} \
+ && apt-get build-dep -y postgresql-common \
+ && apt-get build-dep -y postgresql-client-common \
+ && apt-get build-dep -y pgdg-keyring
 
 RUN cd /tmp \
- && apt-get source --compile postgresql-${PG_VERSION} \
- && apt-get source --compile postgresql-common \
- && apt-get source --compile postgresql-client-common \
- && apt-get source --compile pgdg-keyring
+ && apt-get source -y --compile postgresql-${PG_VERSION} \
+ && apt-get source -y --compile postgresql-common \
+ && apt-get source -y --compile postgresql-client-common \
+ && apt-get source -y --compile pgdg-keyring
 
 RUN mkdir /var/local/repository \
   && echo "deb [ trusted=yes ] file:///var/local/repository ./" | sudo tee /etc/apt/sources.list.d/my_own_repo.list \
